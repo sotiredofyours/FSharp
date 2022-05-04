@@ -1,10 +1,17 @@
-﻿let rec factorial x =
-    if x = 1 then 1
-    else x * factorial(x-1)
+﻿let factorial n =
+    let rec loop i acc =
+        match i with
+        | 1 -> acc
+        | _ -> loop(i-1)(acc*i)
+    loop n 1
     
-let rec fibonacci x =
-    if x <= 2  then 1 
-    else fibonacci(x-1)+fibonacci(x-2)
+let fibonacci x =
+    let rec loop acc1 acc2 n =
+        match n with
+        | 0 -> acc1
+        | 1 -> acc2
+        | _ -> loop acc2 (acc1+acc2) (n-1)
+    loop 0 1 x
     
 let powers n m = 
     let rec pow x y =
@@ -12,11 +19,10 @@ let powers n m =
         else x * pow(x)(y-1)
     [for x in n..m -> pow(2)(x)]
     
-let rec reverse list =
+let rec reverse list acc =
     match list with
-    |[] -> []
-    |[x] -> [x]
-    | head::tail -> reverse tail @ [head]
+    |[] -> acc
+    | head::tail -> reverse(tail)(head::acc)
     
 let rec findElem list x acc =
     match list with
