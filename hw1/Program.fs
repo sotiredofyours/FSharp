@@ -1,4 +1,5 @@
-﻿let factorial n =
+﻿module FSharp.hw1.Program
+let factorial n =
     let rec loop i acc =
         match i with
         | 1 -> acc
@@ -28,7 +29,6 @@ let rec findElem list x acc =
     match list with
     | [] -> -1
     |head::tail -> if head = x then acc else findElem(tail)(x)(acc+1)
-   
 
 
 

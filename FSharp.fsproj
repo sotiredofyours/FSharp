@@ -7,6 +7,16 @@
 
     <ItemGroup>
         <Compile Include="hw1\Program.fs" />
+        <Compile Include="hw2\FirstTask.fs" />
+        <Compile Include="hw2\secondTask.fs" />
+        <Compile Include="hw2\thirdTask.fs" />
+        <Compile Include="hw2\fourthTask.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FsCheck" Version="3.0.0-beta2" />
+      <PackageReference Include="FsUnit" Version="5.0.3" />
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.0" />
     </ItemGroup>
 
 </Project>
