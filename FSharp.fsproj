@@ -11,6 +11,7 @@
         <Compile Include="hw2\secondTask.fs" />
         <Compile Include="hw2\thirdTask.fs" />
         <Compile Include="hw2\fourthTask.fs" />
+        <Folder Include="test" />
     </ItemGroup>
 
     <ItemGroup>

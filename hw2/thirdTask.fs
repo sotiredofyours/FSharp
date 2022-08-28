@@ -13,15 +13,15 @@ type TreeExpression =
 | Division of TreeExpression * TreeExpression
 | Operand of int
 
-let  rec parseArithmeticTree (tree:TreeExpression) =
+let  rec calculateArithmeticTree (tree:TreeExpression) =
     match tree with
-    | Addition(p1,p2) -> parseArithmeticTree p1 + parseArithmeticTree p2
-    | Subtraction(p1,p2) -> parseArithmeticTree p1 - parseArithmeticTree p2
-    | Multiplication(p1,p2) -> parseArithmeticTree p1 * parseArithmeticTree p2
-    | Division(p1,p2) -> parseArithmeticTree p1 / parseArithmeticTree p2
+    | Addition(p1,p2) -> calculateArithmeticTree p1 + calculateArithmeticTree p2
+    | Subtraction(p1,p2) -> calculateArithmeticTree p1 - calculateArithmeticTree p2
+    | Multiplication(p1,p2) -> calculateArithmeticTree p1 * calculateArithmeticTree p2
+    | Division(p1,p2) -> calculateArithmeticTree p1 / calculateArithmeticTree p2
     | Operand(p1) -> p1
 
 [<Test>]
 let ``test simple tree``() =
     let tree = Addition(Operand 2, Operand 3)
-    parseArithmeticTree tree |> should equal 5
+    calculateArithmeticTree tree |> should equal 5

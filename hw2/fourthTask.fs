@@ -11,8 +11,7 @@ let isPrime n =
     check 2
 
 let infSeqOfPrime =
-    Seq.initInfinite (fun index -> if index <3  then index+1 else index+1) |> 
-                                   Seq.filter(fun x -> isPrime x)
+    Seq.initInfinite (fun index -> index+1) |> Seq.filter(fun x -> isPrime x)
         
 [<Test>]
 let ``PrimeNumbers from zero to nine`` () =
